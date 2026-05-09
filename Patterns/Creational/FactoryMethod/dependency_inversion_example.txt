@@ -1,0 +1,22 @@
+abstract class Base {}
+class A, B extends Base {}
+
+interface Factory {
+    Base fabricate();
+}
+
+class FactoryA, FactoryB implements Factory {
+    Base fabricate() { return new A(), new B(); }
+}
+
+class Main {
+    // Injeção de Dependência 
+    void processar(Factory f) {
+        Base obj = f.fabricate();
+    }
+
+    void main() {
+        Factory f; // A informação vem de algum lugar
+        processar(f); // O objeto é fabricado
+    }
+}

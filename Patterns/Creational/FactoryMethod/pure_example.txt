@@ -1,0 +1,20 @@
+abstract class Base {}
+class A, B extends Base {}
+
+interface Factory {
+    Base fabricate();
+}
+
+class FactoryA, FactoryB implements Factory {
+    @Override
+    Base fabricate() { return new A(), B(); }
+}
+
+class Main {
+    void main() {
+        // Seleciona a fábrica desejada
+        Factory factory = new FactoryA, new FactoryB;
+        // Objeto fabricado
+        Base obj = factory.fabricate();
+    }
+}

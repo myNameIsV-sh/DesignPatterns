@@ -1,0 +1,16 @@
+abstract class Base {}
+class A, B extends Base {}
+
+class SimpleFactory {
+    Base create(String type) {
+        if (type == "A") return new A();
+        if (type == "B") return new B();
+    }
+}
+
+class Main {
+    void main() {
+        SimpleFactory factory = new SimpleFactory();
+        Base obj = factory.create("A", "B");
+    }
+}
