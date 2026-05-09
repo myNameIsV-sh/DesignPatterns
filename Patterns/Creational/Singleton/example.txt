@@ -1,0 +1,19 @@
+class Singleton {
+    private static Singleton instance;
+    
+    private Singleton() {}
+
+    public static Singleton getSingleton() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+
+class Main {
+    void main() {
+        Singleton s1, s2 = Singleton.getSingleton();
+        println(s1 == s2); // Mesma instância
+    }
+}
